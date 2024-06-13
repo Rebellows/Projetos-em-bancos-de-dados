@@ -1,0 +1,240 @@
+bd = conn["ecommerce_db"]
+
+bd.create_collection("clientes", validator= {
+  "$jsonSchema": {
+      "bsonType":"object",
+      "title": "Validacao de esquema de clientes",
+      "required": ["_id", "nome", "cpf"],
+      "properties": {
+          "_id": {
+              "bsonType": "int",
+              "description": "Id do cliente - Campo obrigatório!"
+          },
+          "nome": {
+              "bsonType": "string",
+              "description": "Nome do cliente - Campo obrigatório!"
+          },
+          "cpf": {
+              "bsonType": "string",
+              "description": "CPF do cliente - Campo obrigatório!"
+          },
+          "email": {
+              "bsonType": "string",
+              "description": "Email do cliente"
+          },
+          "endereco": {
+              "bsonType":"array",
+              "required": ["_id", "cep", "numero"],
+              "properties": {
+                  "_id": {
+                      "bsonType":"int",
+                      "description": "Id é obrigatório!"
+                  },
+                  "cep": {
+                      "bsonType":"string",
+                      "description": "CEP é obrigatório!"
+                  },
+                  "numero": {
+                      "bsonType":"int",
+                      "description":"Número é obrigatório!"
+                  },
+                  "complemento": {
+                      "bsonType":"string",
+                      "description":"Complemento do endereço"
+                  }
+              }
+          }
+      }
+  }
+})
+
+bd.create_collection("produtos", validator= {
+  "$jsonSchema": {
+      "bsonType": "object",
+      "title": "Validação de esquema de produtos",
+      "required": ["_id", "nome", "preco"],
+      "properties": {
+          "_id": {
+              "bsonType": "int",
+              "description": "Id do produto - Campo obrigatório!"
+          },
+          "nome": {
+              "bsonType": "string",
+              "description": "Nome do produto - Campo obrigatório!"
+          },
+          "preco": {
+              "bsonType": "double",
+              "description": "Preço do produto - Campo obrigatório!"
+          },
+          "categoria": {
+              "bsonType": "object",
+              "required": ["_id", "nome"],
+              "properties": {
+                  "_id": {
+                      "bsonType": "int",
+                      "description": "Id da categoria - Campo obrigatório!"
+                  },
+                  "nome": {
+                      "bsonType": "string",
+                      "description": "Nome da categoria - Campo obrigatório!"
+                  }
+              }
+          },
+          "avaliacoes": {
+              "bsonType": "array",
+              "description": "Lista de avaliações do produto",
+              "items": {
+                  "bsonType": "object",
+                  "properties": {
+                      "cliente": {
+                          "bsonType": "object",
+                          "required": ["_id", "nome"],
+                          "properties": {
+                              "_id": {
+                                  "bsonType": "int",
+                                  "description": "Id do cliente - Campo obrigatório!"
+                              },
+                              "nome": {
+                                  "bsonType": "string",
+                                  "description": "Nome do cliente - Campo obrigatório!"
+                              }
+                          }
+                      },
+                      "_id": {
+                          "bsonType": "int",
+                          "description": "Id da avaliação"
+                      },
+                      "nota": {
+                          "bsonType": "double",
+                          "description": "Nota da avaliação"
+                      },
+                      "comentario": {
+                          "bsonType": "string",
+                          "description": "Comentário da avaliação"
+                      }
+                  }
+              }
+          }
+      }
+  }
+})
+
+bd.create_collection("pedidos", validator= {
+  "$jsonSchema": {
+      "bsonType": "object",
+      "title": "Validação de esquema de pedidos",
+      "required": ["_id", "data_hora", "forma_pgto"],
+      "properties": {
+          "_id": {
+              "bsonType": "int",
+              "description": "Id do pedido - Campo obrigatório!"
+          },
+          "data_hora": {
+              "bsonType": "date",
+              "description": "Data e hora do pedido - Campo obrigatório!"
+          },
+          "forma_pgto": {
+              "bsonType": "string",
+              "description": "Forma de pagamento - Campo obrigatório!"
+          },
+          "cliente": {
+              "bsonType": "object",
+              "required": ["_id", "nome"],
+              "properties": {
+                  "_id": {
+                      "bsonType": "int",
+                      "description": "Id do cliente - Campo obrigatório!"
+                  },
+                  "nome": {
+                      "bsonType": "string",
+                      "description": "Nome do cliente - Campo obrigatório!"
+                  }
+              }
+          },
+          "endereco": {
+              "bsonType": "object",
+              "required": ["_id", "cep", "numero"],
+              "properties": {
+                  "_id": {
+                      "bsonType": "int",
+                      "description": "Id do endereço - Campo obrigatório!"
+                  },
+                  "cep": {
+                      "bsonType": "string",
+                      "description": "CEP é obrigatório!"
+                  },
+                  "numero": {
+                      "bsonType": "int",
+                      "description": "Número é obrigatório!"
+                  },
+                  "complemento": {
+                      "bsonType": "string",
+                      "description": "Complemento do endereço"
+                  }
+              }
+          },
+          "produtos": {
+              "bsonType": "array",
+              "description": "Lista de produtos do pedido",
+              "items": {
+                  "bsonType": "object",
+                  "required": ["_id", "quantidade", "data_entrega", "status_entrega"],
+                  "properties": {
+                      "_id": {
+                          "bsonType": "int",
+                          "description": "Id do produto - Campo obrigatório!"
+                      },
+                      "quantidade": {
+                          "bsonType": "int",
+                          "description": "Quantidade do produto - Campo obrigatório!"
+                      },
+                      "data_entrega": {
+                          "bsonType": "date",
+                          "description": "Data de entrega do produto - Campo obrigatório!"
+                      },
+                      "status_entrega": {
+                          "bsonType": "string",
+                          "description": "Status de entrega do produto - Campo obrigatório!"
+                      },
+                      "transportadora": {
+                          "bsonType": "object",
+                          "required": ["_id", "nome"],
+                          "properties": {
+                              "_id": {
+                                  "bsonType": "int",
+                                  "description": "Id da transportadora - Campo obrigatório!"
+                              },
+                              "nome": {
+                                  "bsonType": "string",
+                                  "description": "Nome da transportadora - Campo obrigatório!"
+                              }
+                          }
+                      }
+                  }
+              }
+          }
+      }
+  }
+})
+
+bd.create_collection("transportadoras", validator= {
+  "$jsonSchema": {
+    "bsonType": "object",
+    "title": "Validação de esquema de transportadoras",
+    "required": ["_id", "nome"],
+    "properties": {
+      "_id": {
+        "bsonType": "int",
+        "description": "Id da transportadora - Campo obrigatório!"
+      },
+      "nome": {
+        "bsonType": "string",
+        "description": "Nome da transportadora - Campo obrigatório!"
+      },
+      "email": {
+        "bsonType": "string",
+        "description": "E-mail da transportadora"
+      }
+    }
+  }
+})

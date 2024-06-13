@@ -1,0 +1,643 @@
+dados = [
+  {
+      "_id": 1,
+      "nome": "Charles Oliveira",
+      "cpf": "12345678901",
+      "email": "charles.oliveira@gmail.com",
+      "endereco": [
+          {
+              "_id": 1,
+              "cep": "01001000",
+              "numero": 123,
+              "complemento": "Apto 101"
+          },
+          {
+              "_id": 6,
+              "cep": "06006000",
+              "numero": 303,
+              "complemento": "Bloco C"
+          }
+      ]
+  },
+  {
+      "_id": 2,
+      "nome": "Amanda Nunes",
+      "cpf": "23456789012",
+      "email": "amanda.nunes@outlook.com",
+      "endereco": [
+          {
+              "_id": 2,
+              "cep": "02002000",
+              "numero": 456
+          }
+      ]
+  },
+  {
+      "_id": 3,
+      "nome": "Alex Pereira",
+      "cpf": "34567890123",
+      "email": "alex.pereira@ig.com",
+      "endereco": [
+          {
+              "_id": 3,
+              "cep": "03003000",
+              "numero": 789,
+              "complemento": "Bloco B"
+          }
+      ]
+  },
+  {
+      "_id": 4,
+      "nome": "Virna Jandiroba",
+      "cpf": "45678901234",
+      "email": "virna.jandiroba@yahoo.com",
+      "endereco": [
+          {
+              "_id": 4,
+              "cep": "04004000",
+              "numero": 101,
+              "complemento": "Casa 2"
+          }
+      ]
+  },
+  {
+      "_id": 5,
+      "nome": "Caio Borralho",
+      "cpf": "56789012345",
+      "email": "caio.borralho@protonmail.com",
+      "endereco": [
+          {
+              "_id": 5,
+              "cep": "05005000",
+              "numero": 202,
+              "complemento": "Apto 305"
+          }
+      ]
+  },
+  {
+      "_id": 6,
+      "nome": "Paulo Costa",
+      "cpf": "67890123456",
+      "email": "paulo.costa@gmail.com",
+      "endereco": [
+          {
+              "_id": 7,
+              "cep": "07007000",
+              "numero": 404,
+              "complemento": "Apto 402"
+          }
+      ]
+  },
+  {
+      "_id": 7,
+      "nome": "Amanda Lemos",
+      "cpf": "78901234567",
+      "email": "amanda.lemos@outlook.com",
+      "endereco": [
+          {
+              "_id": 8,
+              "cep": "08008000",
+              "numero": 505
+          }
+      ]
+  },
+  {
+      "_id": 8,
+      "nome": "Rafael dos Anjos",
+      "cpf": "89012345678",
+      "email": "rafael.anjos@ig.com",
+      "endereco": [
+          {
+              "_id": 9,
+              "cep": "09009000",
+              "numero": 606,
+              "complemento": "Bloco A"
+          }
+      ]
+  },
+  {
+      "_id": 9,
+      "nome": "Taila Santos",
+      "cpf": "90123456789",
+      "email": "taila.santos@yahoo.com",
+      "endereco": [
+          {
+              "_id": 10,
+              "cep": "10010000",
+              "numero": 707,
+              "complemento": "Casa 3"
+          }
+      ]
+  },
+  {
+      "_id": 10,
+      "nome": "Diego Lopes",
+      "cpf": "01234567890",
+      "email": "diego.lopes@protonmail.com",
+      "endereco": [
+          {
+              "_id": 11,
+              "cep": "11011000",
+              "numero": 808,
+              "complemento": "Apto 808"
+          }
+      ]
+  }
+]
+bd.clientes.insert_many(dados)
+
+dados = [
+  {
+      "_id": 1,
+      "nome": "Samsung A34",
+      "preco": 1500.00,
+      "categoria": {
+          "_id": 1,
+          "nome": "Eletrônicos"
+      },
+      "avaliacoes": [
+          {
+              "cliente": {
+                  "_id": 1,
+                  "nome": "Charles Oliveira"
+              },
+              "_id": 1,
+              "nota": 4.5,
+              "comentario": "Produto muito custo-benefício, uma pena que com três meses de uso fica uma carroça."
+          }
+      ]
+  },
+  {
+      "_id": 2,
+      "nome": "Notebook Gamer Lenovo LOQ 15",
+      "preco": 3500.00,
+      "categoria": {
+          "_id": 1,
+          "nome": "Eletrônicos"
+      },
+      "avaliacoes": [
+          {
+              "cliente": {
+                  "_id": 1,
+                  "nome": "Charles Pereira"
+              },
+              "_id": 6,
+              "nota": 4.8,
+              "comentario": "Produto excelente! Consigo jogar até Alan Wake II."
+          }
+      ]
+  },
+  {
+      "_id": 3,
+      "nome": "Tablet Xixaomiro 10.1",
+      "preco": 800.00,
+      "categoria": {
+          "_id": 1,
+          "nome": "Eletrônicos"
+      },
+      "avaliacoes": []
+  },
+  {
+      "_id": 4,
+      "nome": "Câmera Nikon D60",
+      "preco": 1200.00,
+      "categoria": {
+          "_id": 1,
+          "nome": "Eletrônicos"
+      },
+      "avaliacoes": [
+          {
+              "cliente": {
+                  "_id": 4,
+                  "nome": "Virna Jandiroba"
+              },
+              "_id": 9,
+              "nota": 3.8,
+              "comentario": "Câmera boa, mas achei na Shoppe pela metade do preço."
+          }
+      ]
+  },
+  {
+      "_id": 5,
+      "nome": "O Pequeno Príncipe",
+      "preco": 50.00,
+      "categoria": {
+          "_id": 2,
+          "nome": "Livros"
+      },
+      "avaliacoes": [
+          {
+              "cliente": {
+                  "_id": 2,
+                  "nome": "Amanda Nunes"
+              },
+              "_id": 7,
+              "nota": 3.5,
+              "comentario": "Comprei errado, queria O Príncipe do Nicolau Maquiavel, mas meu filho gostou."
+          }
+      ]
+  },
+  {
+      "_id": 6,
+      "nome": "Ayrton - O herói Revelado",
+      "preco": 70.00,
+      "categoria": {
+          "_id": 2,
+          "nome": "Livros"
+      },
+      "avaliacoes": []
+  },
+  {
+      "_id": 7,
+      "nome": "Diário de um Banana: Dias de Cão",
+      "preco": 90.00,
+      "categoria": {
+          "_id": 2,
+          "nome": "Livros"
+      },
+      "avaliacoes": [
+          {
+              "cliente": {
+                  "_id": 5,
+                  "nome": "Caio Borralho"
+              },
+              "_id": 2,
+              "nota": 5.0,
+              "comentario": "Excelente leitura, um livro que redefine o conceito de filosofia pós-moderna e repensa toda a estrutura social."
+          }
+      ]
+  },
+  {
+      "_id": 8,
+      "nome": "Crepúsculo",
+      "preco": 60.00,
+      "categoria": {
+          "_id": 2,
+          "nome": "Livros"
+      },
+      "avaliacoes": []
+  },
+  {
+      "_id": 9,
+      "nome": "Camiseta Estampa The Beatles",
+      "preco": 30.00,
+      "categoria": {
+          "_id": 3,
+          "nome": "Roupas"
+      },
+      "avaliacoes": [
+          {
+              "cliente": {
+                  "_id": 3,
+                  "nome": "Alex Pereira"
+              },
+              "_id": 3,
+              "nota": 3.2,
+              "comentario": "Comprei para minha filha e ela não gostou, agora quem usa sou eu."
+          }
+      ]
+  },
+  {
+      "_id": 10,
+      "nome": "Calça Jeans Boca de Sino",
+      "preco": 100.00,
+      "categoria": {
+          "_id": 3,
+          "nome": "Roupas"
+      },
+      "avaliacoes": [
+          {
+              "cliente": {
+                  "_id": 3,
+                  "nome": "Alex Pereira"
+              },
+              "_id": 8,
+              "nota": 5.0,
+              "comentario": "Adorei a calça, muito confortável e estilosa, as vezes arrasta no chão, mas vale a pena."
+          }
+      ]
+  },
+  {
+      "_id": 11,
+      "nome": "Vestido de Pijama Selfie",
+      "preco": 150.00,
+      "categoria": {
+          "_id": 3,
+          "nome": "Roupas"
+      },
+      "avaliacoes": []
+  },
+  {
+      "_id": 12,
+      "nome": "Chinelo Havaianas One Piece",
+      "preco": 200.00,
+      "categoria": {
+          "_id": 3,
+          "nome": "Roupas"
+      },
+      "avaliacoes": [
+          {
+              "cliente": {
+                  "_id": 6,
+                  "nome": "Paulo Costa"
+              },
+              "_id": 10,
+              "nota": 2.1,
+              "comentario": "Enquenta muito caminhando no asfalto."
+          }
+      ]
+  }
+]
+bd.produtos.insert_many(dados)
+
+dados = [
+  {
+      "_id": 1,
+      "data_hora": datetime(2024, 1, 5, 10, 30),
+      "forma_pgto": "Cartão",
+      "cliente": {
+          "_id": 1,
+          "nome": "Charles Oliveira"
+      },
+      "endereco": {
+          "_id": 1,
+          "cep": "01001000",
+          "numero": 123,
+          "complemento": "Apto 101"
+      },
+      "produtos": [
+          {
+              "_id": 1,
+              "quantidade": 1,
+              "data_entrega": datetime(2024, 7, 2),
+              "status_entrega": "Enviado",
+              "transportadora": {
+                  "_id": 1,
+                  "nome": "Correios"
+              }
+          },
+          {
+              "_id": 2,
+              "quantidade": 1,
+              "data_entrega": datetime(2024, 7, 2),
+              "status_entrega": "Enviado",
+              "transportadora": {
+                  "_id": 1,
+                  "nome": "Correios"
+              }
+          }
+      ]
+  },
+  {
+      "_id": 2,
+      "data_hora": datetime(2024, 2, 6, 11, 45),
+      "forma_pgto": "Boleto",
+      "cliente": {
+          "_id": 2,
+          "nome": "Amanda Nunes"
+      },
+      "endereco": {
+          "_id": 2,
+          "cep": "02002000",
+          "numero": 456,
+      },
+      "produtos": [
+          {
+              "_id": 5,
+              "quantidade": 2,
+              "data_entrega": datetime(2024, 9, 5),
+              "status_entrega": "Pendente",
+              "transportadora": {
+                  "_id": 2,
+                  "nome": "Sedex"
+              }
+          },
+          {
+              "_id": 6,
+              "quantidade": 1,
+              "data_entrega": datetime(2024, 9, 5),
+              "status_entrega": "Pendente",
+              "transportadora": {
+                  "_id": 2,
+                  "nome": "Sedex"
+              }
+          }
+      ]
+  },
+  {
+      "_id": 3,
+      "data_hora": datetime(2024, 3, 7, 15, 20),
+      "forma_pgto": "Pix",
+      "cliente": {
+          "_id": 3,
+          "nome": "Alex Pereira"
+      },
+      "endereco": {
+          "_id": 3,
+          "cep": "03003000",
+          "numero": 789,
+          "complemento": "Bloco B"
+      },
+      "produtos": [
+          {
+              "_id": 9,
+              "quantidade": 3,
+              "data_entrega": datetime(2024, 3, 23),
+              "status_entrega": "Entregue",
+              "transportadora": {
+                  "_id": 1,
+                  "nome": "Correios"
+              }
+          },
+          {
+              "_id": 10,
+              "quantidade": 1,
+              "data_entrega": datetime(2024, 3, 23),
+              "status_entrega": "Entregue",
+              "transportadora": {
+                  "_id": 1,
+                  "nome": "Correios"
+              }
+          }
+      ]
+  },
+  {
+      "_id": 4,
+      "data_hora": datetime(2024, 4, 8, 9, 0),
+      "forma_pgto": "Cartão",
+      "cliente": {
+          "_id": 4,
+          "nome": "Virna Jandiroba"
+      },
+      "endereco": {
+          "_id": 4,
+          "cep": "04004000",
+          "numero": 101,
+          "complemento": "Casa 2"
+      },
+      "produtos": [
+          {
+              "_id": 3,
+              "quantidade": 1,
+              "data_entrega": datetime(2024, 7, 10),
+              "status_entrega": "Enviado",
+              "transportadora": {
+                  "_id": 1,
+                  "nome": "Correios"
+              }
+          },
+          {
+              "_id": 4,
+              "quantidade": 1,
+              "data_entrega": datetime(2024, 7, 10),
+              "status_entrega": "Enviado",
+              "transportadora": {
+                  "_id": 1,
+                  "nome": "Correios"
+              }
+          }
+      ]
+  },
+  {
+      "_id": 5,
+      "data_hora": datetime(2024, 5, 9, 14, 30),
+      "forma_pgto": "Boleto",
+      "cliente": {
+          "_id": 5,
+          "nome": "Caio Borralho"
+      },
+      "endereco": {
+          "_id": 5,
+          "cep": "05005000",
+          "numero": 202,
+          "complemento": "Apto 305"
+      },
+      "produtos": [
+          {
+              "_id": 7,
+              "quantidade": 2,
+              "data_entrega": datetime(2024, 9, 12),
+              "status_entrega": "Pendente",
+              "transportadora": {
+                  "_id": 2,
+                  "nome": "Sedex"
+              }
+          },
+          {
+              "_id": 8,
+              "quantidade": 1,
+              "data_entrega": datetime(2024, 9, 12),
+              "status_entrega": "Pendente",
+              "transportadora": {
+                  "_id": 2,
+                  "nome": "Sedex"
+              }
+          }
+      ]
+  },
+  {
+      "_id": 6,
+      "data_hora": datetime(2024, 6, 10, 12, 15),
+      "forma_pgto": "Pix",
+      "cliente": {
+          "_id": 6,
+          "nome": "Paulo Costa"
+      },
+      "endereco": {
+          "_id": 7,
+          "cep": "07007000",
+          "numero": 404,
+          "complemento": "Apto 402"
+      },
+      "produtos": [
+          {
+              "_id": 11,
+              "quantidade": 3,
+              "data_entrega": datetime(2024, 6, 5),
+              "status_entrega": "Entregue",
+              "transportadora": {
+                  "_id": 1,
+                  "nome": "Correios"
+              }
+          },
+          {
+              "_id": 12,
+              "quantidade": 1,
+              "data_entrega": datetime(2024, 6, 5),
+              "status_entrega": "Entregue",
+              "transportadora": {
+                  "_id": 1,
+                  "nome": "Correios"
+              }
+          }
+      ]
+  },
+   {
+      "_id": 7,
+      "data_hora": datetime(2024, 7, 11, 16, 45),
+      "forma_pgto": "Cartão",
+      "cliente": {
+          "_id": 7,
+          "nome": "Amanda Lemos"
+      },
+      "endereco": {
+          "_id": 8,
+          "cep": "08008000",
+          "numero": 505,
+      },
+      "produtos": [
+          {
+              "_id": 7,
+              "quantidade": 1,
+              "data_entrega": datetime(2024, 6, 5),
+              "status_entrega": "Pendente",
+              "transportadora": {
+                  "_id": 1,
+                  "nome": "Correios"
+              }
+          }
+      ]
+  },
+  {
+      "_id": 8,
+      "data_hora": datetime(2024, 8, 12, 18, 0),
+      "forma_pgto": "Boleto",
+      "cliente": {
+          "_id": 8,
+          "nome": "Rafael dos Anjos"
+      },
+      "endereco": {
+          "_id": 9,
+          "cep": "09009000",
+          "numero": 606,
+          "complemento": "Bloco A"
+      },
+      "produtos": [
+          {
+              "_id": 9,
+              "quantidade": 2,
+              "data_entrega": datetime(2024, 6, 5),
+              "status_entrega": "Enviado",
+              "transportadora": {
+                  "_id": 1,
+                  "nome": "Correios"
+              }
+          }
+      ]
+  }
+]
+bd.pedidos.insert_many(dados)
+
+dados = [
+  {
+      "_id": 1,
+      "nome": "Correios",
+      "email": "contato@correios.com.br"
+  },
+  {
+      "_id": 2,
+      "nome": "Sedex",
+      "email": "contato@sedex.com.br"
+  }
+]
+bd.transportadoras.insert_many(dados)
